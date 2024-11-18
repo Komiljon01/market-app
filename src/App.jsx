@@ -7,6 +7,9 @@ import MainLayout from "./layouts/MainLayout";
 // Pages
 import { Home, Product, Cart } from "./pages";
 
+// Loaders
+import { loader as HomeLoader } from "./pages/Home";
+
 function App() {
   const routes = createBrowserRouter([
     {
@@ -16,6 +19,7 @@ function App() {
         {
           index: true,
           element: <Home />,
+          loader: HomeLoader,
         },
 
         {

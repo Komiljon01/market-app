@@ -5,13 +5,17 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  const { allProducts, price } = useSelector((state) => state.products);
+  const { allProducts, price, products } = useSelector(
+    (state) => state.products
+  );
 
   return (
     <div className="bg-base-200 py-3">
       <div className="navbar align-elements">
         <div className="flex-1">
-          <a className="btn btn-secondary text-xl">Market</a>
+          <Link to="/" className="btn btn-secondary text-xl">
+            Market
+          </Link>
         </div>
         <div className="flex-none">
           <div className="dropdown dropdown-end">
@@ -36,7 +40,7 @@ function Navbar() {
                   />
                 </svg>
                 <span className="badge badge-sm indicator-item">
-                  {allProducts}
+                  {products.length}
                 </span>
               </div>
             </div>
