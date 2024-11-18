@@ -22,6 +22,17 @@ export const productsSlice = createSlice({
       } else {
         toast.success("Product added successfully");
         state.products = [...state.products, payload];
+
+        let allProductsCount = 0;
+        let allProductsPrice = 0;
+
+        state.products.forEach((item) => {
+          allProductsCount += item.amount;
+          allProductsPrice += item.amount * item.price;
+        });
+
+        state.allProducts = allProductsCount;
+        state.price = allProductsPrice;
       }
     },
     removeProduct: () => {},
